@@ -1,11 +1,15 @@
-import React from 'react';
+import React, { VFC } from 'react';
 import { Box, Stack, Image, Text } from '@chakra-ui/react';
 
-export const PokemonCardDetail = () => {
+type Props = {
+  imageUrl: string;
+};
+
+export const PokemonCardDetail: VFC<Props> = ({ imageUrl }) => {
   return (
     <Box>
       <Stack>
-        <Image />
+        <Image src={imageUrl} />
         <Text>dddddddddd</Text>
       </Stack>
     </Box>
