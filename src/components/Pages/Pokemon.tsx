@@ -1,4 +1,5 @@
 import React from 'react';
+import { PokemonCardDetail } from '../Organisms/PokemonCardDetail';
 import { Layout } from '../Templates/Layout';
 
 export const Pokemon = () => {
@@ -6,6 +7,7 @@ export const Pokemon = () => {
     <Layout>
       <div>ddddddd</div>
       <div>ddd</div>
+      <PokemonCardDetail />
     </Layout>
   );
 };

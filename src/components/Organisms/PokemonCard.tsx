@@ -2,7 +2,7 @@ import React, { memo, VFC } from 'react';
 import { Box, Stack, Image, Text } from '@chakra-ui/react';
 
 type Props = {
-  // getPokemon: () => void;
+  // selectPokemon: () => void;
   imageUrl: string;
   pokemonName: string;
   // pokemonType: string;
@@ -17,7 +17,7 @@ export const PokemonCard: VFC<Props> = memo(({ imageUrl, pokemonName }) => {
       shadow="md"
       p={4}
       _hover={{ cursor: 'pointer', opacity: 0.8 }}
-      // onClick={getPokemon}
+      // onClick={selectPokemon}
     >
       <Stack textAlign="center">
         <Image

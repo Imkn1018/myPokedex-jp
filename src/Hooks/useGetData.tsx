@@ -4,10 +4,10 @@ import { dataType } from '../types/type';
 export const useGetData = () => {
   const [pokemon, setPokemon] = useState<Array<dataType>>([]);
   const [loading, setLoading] = useState(false);
-  const getPokemon = async () => {
+  const getPokemon = () => {
     setLoading(true);
-    await axios
-      .get('https://pokeapi.co/api/v2/pokemon?limit=300')
+    axios
+      .get('https://pokeapi.co/api/v2/pokemon?limit=100')
       .then((res) => {
         setPokemon(res.data.results);
       })
