@@ -4,6 +4,26 @@ import { useGetData } from '../../Hooks/useGetData';
 import { PokemonCard } from '../Organisms/PokemonCard';
 import { Wrap, WrapItem } from '@chakra-ui/react';
 import { Link } from 'react-router-dom';
+import gen1 from '../../data/gen1-jp.json';
+import gen2 from '../../data/gen2-jp.json';
+import gen3 from '../../data/gen3-jp.json';
+import gen4 from '../../data/gen4-jp.json';
+import gen5 from '../../data/gen5-jp.json';
+import gen6 from '../../data/gen6-jp.json';
+import gen7 from '../../data/gen7-jp.json';
+import gen8 from '../../data/gen8-jp.json';
+
+const fs = require('fs');
+const allPokemon = [
+  ...gen1,
+  ...gen2,
+  ...gen3,
+  ...gen4,
+  ...gen5,
+  ...gen6,
+  ...gen7,
+  ...gen8,
+];
 
 export const Top = () => {
   const { getPokemon, pokemon, loading } = useGetData();
@@ -12,6 +32,12 @@ export const Top = () => {
     console.log(pokemon);
   }, []);
 
+  useEffect(() => {
+    allPokemon.filter((gen) => {
+      return (gen.tms.length = 0);
+    });
+    console.log(allPokemon);
+  }, []);
   return (
     <Layout>
       <button onClick={onClickGetPoke}>Click</button>
@@ -23,6 +49,7 @@ export const Top = () => {
           pokemonName={pokemon[0].name}
           imageUrl="https://assets.pokemon.com/assets/cms2/img/pokedex/detail/001.png"
         /> */}
+          {/* もし日本語のやつであるならば、ここでnoの値を基に並び替え作業が必要？ */}
           {pokemon.map((pokeman, i) => (
             <WrapItem key={pokeman.url}>
               <Link to={`/pokemon?id=${i + 1}`}>

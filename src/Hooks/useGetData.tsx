@@ -10,6 +10,7 @@ export const useGetData = () => {
       .get('https://pokeapi.co/api/v2/pokemon?limit=100')
       .then((res) => {
         setPokemon(res.data.results);
+        console.log(res.data);
       })
       .catch((err) => console.log(err))
       .finally(() => setLoading(false));
