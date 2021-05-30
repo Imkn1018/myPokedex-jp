@@ -1,15 +1,19 @@
 import React, { useCallback, useState } from 'react';
 import axios from 'axios';
-import { dataType } from '../types/type';
+import DataJp from '../types/pokemon_jp.json';
+
+type dataType = typeof DataJp;
 export const useGetData = () => {
   const [pokemon, setPokemon] = useState<Array<dataType>>([]);
   const [loading, setLoading] = useState(false);
   const getPokemon = () => {
     setLoading(true);
     axios
-      .get('https://pokeapi.co/api/v2/pokemon?limit=100')
+      .get<Array<dataType>>(
+        'https://raw.githubusercontent.com/dayu282/pokemon-data.json/master/jp/gen1-jp.json'
+      )
       .then((res) => {
-        setPokemon(res.data.results);
+        setPokemon(res.data);
         console.log(res.data);
       })
       .catch((err) => console.log(err))
